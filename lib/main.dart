@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_flutter/addData.dart';
+import 'package:http_flutter/detailPage.dart';
 
 import 'dataclasses.dart';
 import 'apiservices.dart';
@@ -67,6 +68,16 @@ class _HomePageState extends State<HomePage> {
                                   NetworkImage(isData[index].avatar),
                             ),
                             subtitle: Text(isData[index].quote, maxLines: 2),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ProfileDetail(
+                                    data: isData[index],
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         );
                       },
